@@ -1,0 +1,73 @@
+# .windsurfrules - Règles du projet NestJS
+
+project: e-commerce 
+structure:
+    - Modules organisés par fonctionnalité (users/products/auth)
+    - Dossier 'src/common' pour les éléments transverses
+    - Validation DTO obligatoire pour les endpoints publics
+    - Versionnage sémantique (SemVer)
+coding_standards:
+  - Typescript strict mode
+  - Pas de types 'any' explicites
+  - Préférer les interfaces aux types
+  - Documentation Swagger obligatoire
+code_quality:
+  typescript:
+    - Strict mode activé
+    - Interface préfixée par 'I' (ex: IUser)
+    - Types explicites interdits 'any'
+  linting:
+    - ESLint config NestJS recommandée
+    - Longueur ligne max: 120 caractères
+    - Nommage PascalCase pour les classes
+    - camelCase pour les variables
+
+security:
+  security_rules:
+    - Validation DTO sur toutes les entrées
+    - Hashage bcrypt pour les mots de passe
+    - Variables sensibles dans .env
+  authentication:
+    - JWT avec expiration 1h
+    - Refresh tokens obligatoires
+    - Mots de passe hashés avec bcrypt
+  environment:
+    - Variables sensibles dans .env
+    - Fichier .env jamais commité
+
+api:
+  documentation:
+    - Swagger obligatoire pour tous les endpoints
+    - Décoration @ApiProperty sur les DTO
+  responses:
+    - Format de réponse standardisé:
+      {
+        "statusCode": number,
+        "data": any,
+        "timestamp": string
+      }
+
+database:
+  typeorm:
+    - Relations chargées explicitement
+    - Transactions pour les opérations critiques
+    - Logging désactivé en production
+  migrations:
+    - Versionnées et réversibles
+    - Testées en local avant déploiement
+
+testing:
+  coverage:
+    - Minimum 80% pour les services
+    - 100% des routes protégées testées
+  practices:
+    - Tests e2e avec supertest
+    - Mocking des dépendances externes
+
+git:
+  commits:
+    - Convention Angular Commit Messages
+    - Références Jira dans les messages
+  branching:
+    - Strategy Git Flow
+    - Protection de la branche main
