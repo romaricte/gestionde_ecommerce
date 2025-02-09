@@ -1,4 +1,10 @@
-import { Entity, Column, PrimaryGeneratedColumn, CreateDateColumn, UpdateDateColumn } from 'typeorm';
+import {
+  Entity,
+  Column,
+  PrimaryGeneratedColumn,
+  CreateDateColumn,
+  UpdateDateColumn,
+} from 'typeorm';
 import { Exclude } from 'class-transformer';
 import { ApiProperty } from '@nestjs/swagger';
 
@@ -31,4 +37,5 @@ export class User {
   @UpdateDateColumn()
   @ApiProperty({ description: 'Date de dernière mise à jour' })
   updatedAt: Date;
+
 }
